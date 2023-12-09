@@ -5,7 +5,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 const AreaBox = ({label, icon: Icon, selected}) => {
     const [params , setParams] = useSearchParams()
     const navigate = useNavigate()
-    console.log(selected)
+    // console.log(selected)
 
     params.get('area')
 
@@ -14,7 +14,7 @@ const AreaBox = ({label, icon: Icon, selected}) => {
         let currentQuery = {}
         if(params){
             currentQuery = qs.parse(params.toString())
-
+        }
             const updateQuery = {...currentQuery, area: label}
 
             const url = qs.stringifyUrl({
@@ -23,7 +23,7 @@ const AreaBox = ({label, icon: Icon, selected}) => {
 
             })
             navigate(url)
-        }
+        
     }
 
     // console.log(label)

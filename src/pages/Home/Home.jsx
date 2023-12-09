@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div>
 
-      <h1>Welcome to StayVista</h1>
+   
       {/* banner sections */}
       <Banner></Banner>
 
