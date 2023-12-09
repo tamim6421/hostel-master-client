@@ -13,7 +13,17 @@ const MenuDropdown = () => {
       <div className='flex flex-row items-center gap-3'>
         {/* Become A Host btn */}
         <div className='hidden md:block'>
-          <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
+          <ul className='flex gap-5'>
+            <li>
+              <Link>Contact Us</Link>
+            </li>
+            <li>
+              <Link>All Rooms</Link>
+            </li>
+          </ul>
+        </div>
+        <div className='hidden md:block'>
+          <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 btn py-3 px-4 text-sm font-semibold rounded-full  transition'>
             Host your home
           </button>
         </div>
@@ -44,6 +54,18 @@ const MenuDropdown = () => {
               className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
             >
               Home
+            </Link>
+            <Link
+              to='/'
+              className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+            >
+              All Rooms
+            </Link>
+            <Link
+              to='/'
+              className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+            >
+              Contract Us
             </Link>
 
             <Link

@@ -16,8 +16,8 @@ const Banner = () => {
             <div className="flex h-[100vh] items-center justify-center">
            
             
-              <div className="md:w-3/4  mx-auto px-5">
-                <h1 className="text-3xl lg:text-6xl font-bold font-rope pl-5 " data-aos="fade-down" >
+              <div className="md:w-3/4  px-5">
+                <h1 className="text-3xl lg:text-6xl w-full font-bold font-rope pl-5 " data-aos="fade-down" >
                 <span className='text-yellow-400' data-aos="fade-down">BOOK YOUR STAY </span> <span className='text-blue-500'>AND</span>
                 <br />
                 <span className='text-white' data-aos="fade-left">ENJOY </span></h1>
