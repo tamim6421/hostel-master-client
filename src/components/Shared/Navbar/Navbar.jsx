@@ -9,15 +9,10 @@ const Navbar = () => {
       <div className='py-4 border-b-[1px]'>
         <Container>
           <div className='flex flex-row  items-center justify-between gap-3 md:gap-0'>
+            
             {/* Logo */}
             <Link to='/'>
-              <img
-                className='hidden md:block'
-                src={logoImg}
-                alt='logo'
-                width='100'
-                height='100'
-              />
+            <p className='text-2xl md:text-3xl font-bold text-yellow-400'>Hostel<span className='text-blue-400'>Master</span></p>
             </Link>
             {/* Dropdown Menu */}
             <MenuDropdown />
