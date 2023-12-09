@@ -2,29 +2,34 @@ import { useEffect, useState } from "react";
 import RoomCards from "./RoomCards";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Heading from "../Shared/Heading";
+import Loader from "../Shared/Loader";
 
 
 const Rooms = () => {
     const [rooms, setRooms] = useState([])
     const [params , setParams] = useSearchParams()
     const area = params.get("area")
+    const [loading, setLoading] = useState(false)
 
     useEffect( () =>{
+        setLoading(true)
         fetch('/rooms.json')
         .then(res => res.json())
         .then( data => {
             if(area){
                 const filterArea = data.filter(room => room.area === area)
-                console.log(filterArea)
+                // console.log(filterArea)
                 setRooms(filterArea)
             }
             else{
 
                 setRooms(data)
             }
+            setLoading(false)
         })
     } ,[area])
 
+        if(loading) return <Loader></Loader>
 
     return (
         <div className="pt-10">
