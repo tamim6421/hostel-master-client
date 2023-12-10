@@ -2,6 +2,10 @@ import { useParams } from "react-router-dom";
 import Container from "../../components/Shared/Container";
 import { useEffect, useState } from "react";
 import Loader from "../../components/Shared/Loader";
+import Header from "./Header/Header";
+import RoomInfo from "./RoomInfo";
+import { Calendar } from "react-date-range";
+import RoomRservations from "./RoomRservations";
 
 
 const RoomsDetails = () => {
@@ -28,16 +32,27 @@ const RoomsDetails = () => {
 
     return (
         <Container>
-            <div className="pt-20" >
-                <h1>Rooms details:{room.title} </h1>
+            <div className="pt-20 max-w-screen-lg mx-auto" >
+          
 
                 {/* room header  */}
-                <div></div>
+                <div className="my-5 ">
+                    <Header room={room}></Header>
+                </div>
 
                 {/* room details info  */}
-                <div></div>
+                <div className="grid grid-cols-2 md:grid-cols-7">
+                <RoomInfo room={room}></RoomInfo>
 
-                {/* calender  */}
+                <div className="md:col-span-3  order-first md:order-last mt-10">
+                 {/* Room reservations  */}
+
+                    <RoomRservations room={room}></RoomRservations>
+       
+                </div>
+
+                </div>
+
                 <div></div>
 
                 
