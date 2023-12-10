@@ -5,6 +5,7 @@ import toast from 'react-hot-toast'
 import { imageUpload } from '../../api/uploadImage'
 import useAuth from '../../hooks/useAuth'
 import { getToken, saveUser } from '../../api/utils'
+import { ImSpinner9 } from "react-icons/im";
 
 const SignUp = () => {
   const navigate = useNavigate()
@@ -57,14 +58,36 @@ const SignUp = () => {
       console.log(error)
       toast.error(error?.message)
     }
-
-   
-
-
-
    
   }
 
+
+  // handle google sign in 
+  const handleGoogleSignIn =async () =>{
+    try {
+
+      // 1. for singUp user with google
+      const user = await signInWithGoogle()
+      console.log(user)
+     
+
+      // 2. save user data to the database 
+      const dbResponse = await saveUser(user?.user)
+      console.log(dbResponse)
+
+
+      // 5. get token 
+      await getToken(user?.user?.email)
+
+      toast.success('user created successful')
+      navigate('/')
+
+      
+    } catch (error) {
+      console.log(error)
+      toast.error(error?.message)
+    }
+  }
 
 
 
@@ -72,14 +95,14 @@ const SignUp = () => {
 
   return (
 
-    <div className="hero min-h-screen ">
+    <div className="hero min-h-screen bg-blue-50">
     <div className="hero-content flex-col lg:flex-row">
       <img src={signUp} className="max-w-sm rounded-lg " />
       <div>
       <div className='flex justify-center items-center min-h-screen'>
-      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10  text-gray-900'>
+      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-blue-50 shadow-lg text-gray-900'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl text-orange-400 font-bold'>Sign Up</h1>
+          <h1 className='my-3 text-4xl text-orange-400 drop-shadow-xl font-bold'>Sign Up</h1>
           <p className='text-sm text-gray-400'>Welcome to HostelMaster</p>
         </div>
         <form
@@ -151,7 +174,7 @@ const SignUp = () => {
               type='submit'
               className='bg-blue-500 w-full rounded-md py-3 text-white'
             >
-              Continue
+              {loading ? <ImSpinner9 className='animate-spin m-auto text-white' />: "Sign Up"}
             </button>
           </div>
         </form>
@@ -162,7 +185,9 @@ const SignUp = () => {
           </p>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
-        <div className='flex justify-center items-center space-x-2 border btn btn-outline m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
+        <div
+        onClick={handleGoogleSignIn}
+         className='flex justify-center items-center space-x-2 border btn hover:bg-blue-500 hover:text-white m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
           <FcGoogle size={32} />
 
           <p >Continue with Google</p>

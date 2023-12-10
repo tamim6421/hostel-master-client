@@ -23,3 +23,10 @@ export const getToken = async email =>{
 
     return data
 }
+
+
+// remove token from browser 
+export const removeToken = async () =>{
+    const {data} = await axiosSecure.get('/logout')
+    return data
+}
