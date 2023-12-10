@@ -1,11 +1,14 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
 import signUp from '../../assets/register_blue.svg'
 import toast from 'react-hot-toast'
 import { imageUpload } from '../../api/uploadImage'
+import useAuth from '../../hooks/useAuth'
+import { getToken, saveUser } from '../../api/utils'
 
 const SignUp = () => {
-
+  const navigate = useNavigate()
+  const {createUser, updateUserProfile, signInWithGoogle, loading} = useAuth()
 
 
 
@@ -25,26 +28,29 @@ const SignUp = () => {
     try {
       // 1. for upload image 
       const imageData = await imageUpload(image)
-      console.log(imageData)
+      // console.log(imageData)
+
 
       // 2. for singUp user 
-      // const user = await createUser(email, password)
-      // console.log(user)
+      const user = await createUser(email, password)
+      console.log(user)
 
 
       // 3. for update profile 
-      // await updateUserProfile(name, imageData?.data?.display_url)
+      await updateUserProfile(name, imageData?.data?.display_url)
+
+
 
       // 4. save user data to the database 
-      // const dbResponse = await saveUser(user?.user)
-      // console.log(dbResponse)
+      const dbResponse = await saveUser(user?.user)
+      console.log(dbResponse)
 
 
       // 5. get token 
-      // await getToken(user?.user?.email)
+      await getToken(user?.user?.email)
 
-      // toast.success('user created successful')
-      // navigate('/')
+      toast.success('user created successful')
+      navigate('/')
 
       
     } catch (error) {
