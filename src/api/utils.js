@@ -30,3 +30,20 @@ export const removeToken = async () =>{
     const {data} = await axiosSecure.get('/logout')
     return data
 }
+
+
+
+
+
+// room related functions 
+// get all rooms 
+export const getAllRooms = async() =>{
+    const {data} = await axiosSecure.get('/rooms')
+    return data 
+}
+
+// get a single room from db
+export const getSingleRoom = async(id) =>{
+    const {data} = await axiosSecure.get(`/rooms/${id}`)
+    return data
+}

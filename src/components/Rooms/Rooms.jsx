@@ -3,6 +3,7 @@ import RoomCards from "./RoomCards";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Heading from "../Shared/Heading";
 import Loader from "../Shared/Loader";
+import { getAllRooms } from "../../api/utils";
 
 
 const Rooms = () => {
@@ -13,8 +14,7 @@ const Rooms = () => {
 
     useEffect( () =>{
         setLoading(true)
-        fetch('/rooms.json')
-        .then(res => res.json())
+        getAllRooms()
         .then( data => {
             if(area){
                 const filterArea = data.filter(room => room.area === area)

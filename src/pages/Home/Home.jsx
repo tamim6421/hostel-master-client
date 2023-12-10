@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom"
+import { useLoaderData } from "react-router-dom"
 import Area from "../../components/Rooms/Area/Area"
 import Rooms from "../../components/Rooms/Rooms"
 import Container from "../../components/Shared/Container"

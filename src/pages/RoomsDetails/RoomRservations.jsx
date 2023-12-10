@@ -11,36 +11,36 @@ import useAuth from './../../hooks/useAuth';
 const RoomRservations = ({room}) => {
 
 
-    // let [isOpen, setIsOpen] = useState(false)
-    // const {user} = useAuth()
+    let [isOpen, setIsOpen] = useState(false)
+    const {user} = useAuth()
   
-    // const closeModal = () =>{
-    //   setIsOpen(false)
-    // }
+    const closeModal = () =>{
+      setIsOpen(false)
+    }
   
-    // const [value, setValue] = useState({
-    //   startDate: new Date(room?.from),
-    //   endDate: new Date (room?.to),
-    //   key: 'selection'
-    // })
+    const [value, setValue] = useState({
+      startDate: new Date(room?.from),
+      endDate: new Date (room?.to),
+      key: 'selection'
+    })
   
   
   
-    //   const totalDays = parseInt(formatDistance( new Date(room?.to), new Date(room?.from)).split(' ')[0])
-    //   const totalPrice = totalDays * room?.price
+      const totalDays = parseInt(formatDistance( new Date(room?.to), new Date(room?.from)).split(' ')[0])
+      const totalPrice = totalDays * room?.price
       
   
-    //   const [bookingInfo, setBookingInfo] = useState({
-    //     guest: {name: user?.displayName, email: user?.email, image: user?.photoURL},
-    //     host: room?.host?.email,
-    //     location: room?.location,
-    //     price: totalPrice,
-    //     to: value.endDate,
-    //     from: value.startDate,
-    //     title: room?.title,
-    //     roomId: room?._id,
-    //     image: room?.image
-    //   })
+      const [bookingInfo, setBookingInfo] = useState({
+        guest: {name: user?.displayName, email: user?.email, image: user?.photoURL},
+        host: room?.host?.email,
+        location: room?.location,
+        price: totalPrice,
+        to: value.endDate,
+        from: value.startDate,
+        title: room?.title,
+        roomId: room?._id,
+        image: room?.image
+      })
   
 
 
@@ -56,7 +56,7 @@ const RoomRservations = ({room}) => {
       <hr />
       {/* calender component */}
       <div className="flex justify-center">
-        <Calender></Calender>
+        <Calender value={value}></Calender>
       </div>
 
       <div>
