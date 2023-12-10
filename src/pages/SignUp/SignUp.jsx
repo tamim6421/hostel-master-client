@@ -1,15 +1,83 @@
 import { Link } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
+import signUp from '../../assets/register_blue.svg'
+import toast from 'react-hot-toast'
+import { imageUpload } from '../../api/uploadImage'
 
 const SignUp = () => {
+
+
+
+
+  const handleSubmit = async event =>{
+
+
+    event.preventDefault()
+    const form = event.target 
+    const name = form.name.value 
+    const email = form.email.value 
+    const password = form.password.value 
+    const image = form.image.files[0]
+
+    console.log({name, email, password, image})
+
+   
+    try {
+      // 1. for upload image 
+      const imageData = await imageUpload(image)
+      console.log(imageData)
+
+      // 2. for singUp user 
+      // const user = await createUser(email, password)
+      // console.log(user)
+
+
+      // 3. for update profile 
+      // await updateUserProfile(name, imageData?.data?.display_url)
+
+      // 4. save user data to the database 
+      // const dbResponse = await saveUser(user?.user)
+      // console.log(dbResponse)
+
+
+      // 5. get token 
+      // await getToken(user?.user?.email)
+
+      // toast.success('user created successful')
+      // navigate('/')
+
+      
+    } catch (error) {
+      console.log(error)
+      toast.error(error?.message)
+    }
+
+   
+
+
+
+   
+  }
+
+
+
+
+
+
   return (
-    <div className='flex justify-center items-center min-h-screen'>
-      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+
+    <div className="hero min-h-screen ">
+    <div className="hero-content flex-col lg:flex-row">
+      <img src={signUp} className="max-w-sm rounded-lg " />
+      <div>
+      <div className='flex justify-center items-center min-h-screen'>
+      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10  text-gray-900'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
-          <p className='text-sm text-gray-400'>Welcome to StayVista</p>
+          <h1 className='my-3 text-4xl text-orange-400 font-bold'>Sign Up</h1>
+          <p className='text-sm text-gray-400'>Welcome to HostelMaster</p>
         </div>
         <form
+        onSubmit={handleSubmit}
           noValidate=''
           action=''
           className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -24,7 +92,7 @@ const SignUp = () => {
                 name='name'
                 id='name'
                 placeholder='Enter Your Name Here'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 bg-gray-200 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-500 text-gray-900'
                 data-temp-mail-org='0'
               />
             </div>
@@ -84,14 +152,14 @@ const SignUp = () => {
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
           <p className='px-3 text-sm dark:text-gray-400'>
-            Signup with social accounts
+            Sign Up with social accounts
           </p>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
-        <div className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
+        <div className='flex justify-center items-center space-x-2 border btn btn-outline m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
           <FcGoogle size={32} />
 
-          <p>Continue with Google</p>
+          <p >Continue with Google</p>
         </div>
         <p className='px-6 text-sm text-center text-gray-400'>
           Already have an account?{' '}
@@ -105,6 +173,11 @@ const SignUp = () => {
         </p>
       </div>
     </div>
+      </div>
+    </div>
+  </div>
+
+   
   )
 }
 
