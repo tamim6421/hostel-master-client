@@ -8,6 +8,8 @@ import RoomsDetails from '../pages/RoomsDetails/RoomsDetails'
 import PrivetRoutes from './PrivetRoutes/PrivetRoutes'
 import { getAllRooms, getSingleRoom } from '../api/utils'
 import Dashboard from '../layouts/Dashboard/Dashboard'
+import AddRoom from '../layouts/Dashboard/AddRoom/AddRoom'
+import MyRoom from '../layouts/Dashboard/MyRoom/MyRoom'
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,16 @@ export const router = createBrowserRouter([
   { path: '/signup', element: <SignUp /> },
   {
     path: '/dashboard',
-    element: <Dashboard></Dashboard>
+    element: <Dashboard></Dashboard>,
+    children:[
+      {
+        path:'addRoom',
+        element: <AddRoom></AddRoom>
+      },
+      {
+        path: 'myRoom',
+        element: <MyRoom></MyRoom>
+      }
+    ]
   }
 ])

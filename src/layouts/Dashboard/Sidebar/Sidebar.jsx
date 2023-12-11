@@ -1,14 +1,16 @@
 import { useState } from 'react'
 // Components
 
-
 // Icons
+import { BsHouseCheckFill } from "react-icons/bs";
+import { MdOutlineAddHomeWork } from "react-icons/md"
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
 import { BsGraphUp } from 'react-icons/bs'
 import MenuItem from './MenuItem'
 import ToggleBtn from '../../../components/Button/ToggleBtn'
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const [toggle, setToggle] = useState(false)
@@ -29,8 +31,11 @@ const Sidebar = () => {
         <div>
           <div className='block cursor-pointer p-4 font-bold'>
             {/* <Logo /> */}
-            <h1>HostelMaster</h1>
+            <Link to='/'>
+            <h1 className=' cursor-pointer '>HostelMaster</h1>
+            </Link>
           </div>
+
         </div>
 
         <button
@@ -50,7 +55,9 @@ const Sidebar = () => {
           <div>
             <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto'>
               {/* <Logo /> */}
-              <h1>HostelMaster</h1>
+              <Link to='/'>
+            <h1 className=' cursor-pointer '>HostelMaster</h1>
+            </Link>
             </div>
           </div>
 
@@ -63,6 +70,18 @@ const Sidebar = () => {
                 icon={BsGraphUp}
                 label='Statistics'
                 address='/dashboard'
+              />
+
+              <MenuItem
+                icon={MdOutlineAddHomeWork }
+                label='Add Room'
+                address='addRoom'
+              />
+
+              <MenuItem
+                icon={BsHouseCheckFill  }
+                label='My Rooms'
+                address='myRoom'
               />
 
               {/* Menu Items */}

@@ -47,3 +47,11 @@ export const getSingleRoom = async(id) =>{
     const {data} = await axiosSecure.get(`/rooms/${id}`)
     return data
 }
+
+
+// post room data in database 
+export const addRooms = async (roomData) =>{
+    const {data} = await axiosSecure.post(`/roomsdata`, roomData)
+    return data
+
+}
