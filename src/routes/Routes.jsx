@@ -10,6 +10,8 @@ import { getAllRooms, getSingleRoom } from '../api/utils'
 import Dashboard from '../layouts/Dashboard/Dashboard'
 import AddRoom from '../layouts/Dashboard/AddRoom/AddRoom'
 import MyRoom from '../layouts/Dashboard/MyRoom/MyRoom'
+import ManageUsers from '../pages/Dashboard/Admin/ManageUsers'
+import AdminRoute from './AdminRoutes/AdminRoute'
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +34,7 @@ export const router = createBrowserRouter([
   { path: '/signup', element: <SignUp /> },
   {
     path: '/dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivetRoutes><Dashboard></Dashboard></PrivetRoutes>,
     children:[
       {
         path:'addRoom',
@@ -40,7 +42,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'myRoom',
-        element: <MyRoom></MyRoom>
+        element: <PrivetRoutes><MyRoom></MyRoom></PrivetRoutes>
+      },
+      {
+        path: 'manage-users',
+        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
       }
     ]
   }

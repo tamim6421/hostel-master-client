@@ -55,3 +55,29 @@ export const addRooms = async (roomData) =>{
     return data
 
 }
+
+
+
+// get host  rooms by using email 
+export const getHostRoom = async(email) =>{
+    const {data} = await axiosSecure.get(`/myrooms/${email}`)
+    return data
+}
+
+
+
+// get roll 
+// get user Role 
+export const getRole = async(email) =>{
+    const {data} = await axiosSecure(`/user/${email}`)
+    return data.role
+}
+
+// become host 
+export const becomeHost = async(email) =>{
+    const currentUser = {
+        email, status: 'Requested',
+    }
+    const {data} = await axiosSecure.put(`/users/${email}`, currentUser)
+    return data
+}
