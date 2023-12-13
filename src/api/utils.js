@@ -121,3 +121,34 @@ export const getHostBooking = async (email) =>{
     const {data} = await axiosSecure.get(`/bookings/host?email=${email}`)
     return data 
 }
+
+
+// grt all user for admin manage users 
+// get all users for manage admin 
+export const getAllUsers = async() =>{
+    const {data} = await axiosSecure(`/allusers/admin`)
+    return data
+}
+
+
+// update user role by admin 
+// /update/role/:email
+// update user role by admin 
+export const updateRole = async ({email, role}) =>{
+    const currentUser ={
+        email,
+        role,
+        status: 'Verified'
+    }
+    const {data} = await axiosSecure.put(`/update/role/${email}`, currentUser)
+    return data
+}
+
+// become host 
+// export const becomeHost = async(email) =>{
+//     const currentUser = {
+//         email, status: 'Requested',
+//     }
+//     const {data} = await axiosSecure.put(`/users/${email}`, currentUser)
+//     return data
+// }
