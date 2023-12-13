@@ -12,6 +12,7 @@ import AddRoom from '../layouts/Dashboard/AddRoom/AddRoom'
 import MyRoom from '../layouts/Dashboard/MyRoom/MyRoom'
 import ManageUsers from '../pages/Dashboard/Admin/ManageUsers'
 import AdminRoute from './AdminRoutes/AdminRoute'
+import Profile from '../pages/Dashboard/Admin/Common/Profile'
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
       {
         path: 'manage-users',
         element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+      },
+      {
+        path: 'profile',
+        element: <Profile></Profile>
       }
     ]
   }

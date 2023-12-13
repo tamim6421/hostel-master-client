@@ -81,3 +81,43 @@ export const becomeHost = async(email) =>{
     const {data} = await axiosSecure.put(`/users/${email}`, currentUser)
     return data
 }
+
+
+
+
+
+// ---------------------------
+// booking related api call 
+export const createPaymentIntent = async (price) =>{
+    const {data} = await axiosSecure.post('/create-payment-intent', price)
+    return data
+}   
+
+// save booking info in db 
+
+export const saveBookingInfo = async (paymentInfo) =>{
+    const {data} = await axiosSecure.post('/booking', paymentInfo)
+    return data
+}   
+
+
+
+// update booking status in db 
+export const updateStatus = async (id, status) =>{
+    const {data} = await axiosSecure.patch(`/rooms/status/${id}`, {status})
+    return data
+}   
+
+
+
+// get booking data for a specific host/ users email 
+export const getBooking = async (email) =>{
+    const {data} = await axiosSecure.get(`/bookings?email=${email}`)
+    return data 
+}
+
+// get all bookings for a host by email 
+export const getHostBooking = async (email) =>{
+    const {data} = await axiosSecure.get(`/bookings/host?email=${email}`)
+    return data 
+}

@@ -4,8 +4,11 @@ import DatePicker from "./Calender";
 import Calender from "./Calender";
 import Button from "../../components/Button/Button";
 import { useState } from "react";
-import { formatDistance } from "date-fns";
+// import { formatDistance ,parseISO } from "date-fns";
 import useAuth from './../../hooks/useAuth';
+import { differenceInDays, differenceInMonths, parseISO } from 'date-fns';
+import BookingModal from "./Modal/BookingModal";
+
 
 
 const RoomRservations = ({room}) => {
@@ -23,13 +26,16 @@ const RoomRservations = ({room}) => {
       endDate: new Date (room?.to),
       key: 'selection'
     })
-  
-  
-  
-      const totalDays = parseInt(formatDistance( new Date(room?.to), new Date(room?.from)).split(' ')[0])
-      const totalPrice = totalDays * room?.price
-      
-  
+    
+    const fromDate = parseISO(room?.from);
+    const toDate = parseISO(room?.to);
+    
+    const totalMonths = differenceInMonths(toDate, fromDate);
+    const totalPrice = totalMonths * parseInt(room?.price);
+    
+    // console.log('Total Months:', totalMonths);
+    // console.log('Total Price:', totalPrice);
+
       const [bookingInfo, setBookingInfo] = useState({
         guest: {name: user?.displayName, email: user?.email, image: user?.photoURL},
         host: room?.host?.email,
@@ -64,18 +70,18 @@ const RoomRservations = ({room}) => {
           <div>
             <Button 
             disabled={''}
-            // onClick={ () => setIsOpen(true)}
+            onClick={ () => setIsOpen(true)}
             label={"Reserve"}></Button>
           </div>
           <hr className="border-2 border-orange-200" />
           <div className="flex items-center justify-between mt-3">
-            <p className="text-xl font-bold">Total : 000 </p>
-            {/* <p> ${totalPrice} </p> */}
+            <p className="text-xl font-bold">Total :  </p>
+            <p> ${totalPrice} </p>
           </div>
         </div>
       </div>
 
-      {/* <BookingModal closeModal={closeModal} isOpen={isOpen} bookingInfo={bookingInfo}></BookingModal> */}
+      <BookingModal closeModal={closeModal} isOpen={isOpen} bookingInfo={bookingInfo}></BookingModal>
 
     </div>
         </div>
