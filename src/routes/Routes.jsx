@@ -15,6 +15,10 @@ import AdminRoute from './AdminRoutes/AdminRoute'
 import Profile from '../pages/Dashboard/Admin/Common/Profile'
 import MyBookings from '../pages/RoomsDetails/MyBooking/MyBookings'
 import ManageBookings from '../pages/RoomsDetails/ManageBookings/ManageBookings'
+import Statistics from '../pages/Dashboard/Admin/Common/Statistics'
+import ContactUs from '../pages/ContactUs/ContactUs'
+import UpdateRoom from '../layouts/Dashboard/MyRoom/UpdateRoom'
+
 
 export const router = createBrowserRouter([
   {
@@ -27,10 +31,15 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path:'contact',
+        element: <ContactUs></ContactUs>
+      },
+      {
         path: '/rooms/:id',
         element: <PrivetRoutes><RoomsDetails></RoomsDetails></PrivetRoutes>,
         loader: ({params}) => getSingleRoom(params.id)
-      }
+      },
+      
     ],
   },
   { path: '/login', element: <Login /> },
@@ -48,6 +57,11 @@ export const router = createBrowserRouter([
         element: <PrivetRoutes><MyRoom></MyRoom></PrivetRoutes>
       },
       {
+        path: 'updateRoom/:id',
+        element: <UpdateRoom></UpdateRoom>,
+        loader: ({params}) => fetch(`https://hostel-master-server.vercel.app/updateroom/${params.id}`)
+      },
+      {
         path: 'manage-users',
         element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
       },
@@ -62,6 +76,10 @@ export const router = createBrowserRouter([
       {
         path: 'manageBookings',
         element: <ManageBookings></ManageBookings>
+      },
+      {
+        path: 'adminState',
+        element: <Statistics></Statistics>
       }
     ]
   }

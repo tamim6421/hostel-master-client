@@ -40,7 +40,7 @@ const Sidebar = () => {
           <div className='block cursor-pointer p-4 font-bold'>
             {/* <Logo /> */}
             <Link to='/'>
-            <h1 className=' cursor-pointer '>HostelMaster</h1>
+            <h1 className=' cursor-pointer text-blue-500 '>Hostel <span className='text-yellow-500'>Master</span> </h1>
             </Link>
           </div>
 
@@ -61,10 +61,10 @@ const Sidebar = () => {
       >
         <div>
           <div>
-            <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto'>
+            <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-blue-100 mx-auto'>
               {/* <Logo /> */}
               <Link to='/'>
-            <h1 className=' cursor-pointer '>HostelMaster</h1>
+            <h1 className=' cursor-pointer text-blue-500 text-xl font-extrabold'>Hostel<span className='text-yellow-500'>Master</span></h1>
             </Link>
             </div>
           </div>
@@ -77,11 +77,11 @@ const Sidebar = () => {
               {/* If a user is host */}
               { role === 'host' || role === 'guest' ?  <ToggleBtn toggleHandler={toggleHandler} /> : ''}
             <nav>
-              <MenuItem
+              {/* <MenuItem
                 icon={BsGraphUp}
                 label='Statistics'
                 address='/dashboard'
-              />
+              /> */}
 
 
               {/* host menu  */}

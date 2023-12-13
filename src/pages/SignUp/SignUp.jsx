@@ -99,6 +99,7 @@ const SignUp = () => {
     <div className="hero-content flex-col lg:flex-row">
       <img src={signUp} className="max-w-sm rounded-lg " />
       <div>
+        
       <div className='flex justify-center items-center min-h-screen'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-blue-50 shadow-lg text-gray-900'>
         <div className='mb-8 text-center'>

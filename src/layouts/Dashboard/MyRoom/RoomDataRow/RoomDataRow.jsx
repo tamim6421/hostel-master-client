@@ -1,11 +1,42 @@
 import { format } from 'date-fns'
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
+import Swal from 'sweetalert2';
+import axiosSecure from '../../../../api';
+import { Link } from 'react-router-dom';
 
-
-const RoomDataRow = ({ room }) => {
+const RoomDataRow = ({ room, refetch }) => {
  
+//  console.log(room)
 
+
+
+  const handelDelete =  (id) =>{
+    // console.log(id)
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then( async (result) => {
+      if (result.isConfirmed) {
+        const res = await axiosSecure.delete(`/rooms/${id}`)
+        // console.log(res.data)
+        if(res.data.deleteCount > 0){
+          refetch()
+           Swal.fire({
+          title: "Deleted!",
+          text: "Your Room has been deleted.",
+          icon: "success"
+        });
+        }
+       
+      }
+    });
+  }
 
 
   return (
@@ -48,10 +79,12 @@ const RoomDataRow = ({ room }) => {
             aria-hidden='true'
             className='absolute inset-0 bg-red-200 opacity-50 rounded-full'
           ></span>
-          <button className='relative '>
+          <button 
+          onClick={() =>handelDelete(room?._id)}
+          className='relative '>
           <MdDelete className='text-2xl text-red-500' />
-         
           </button>
+
         </span>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -60,9 +93,13 @@ const RoomDataRow = ({ room }) => {
             aria-hidden='true'
             className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
           ></span>
-          <button className='relative '>
+
+         <Link to = {`/dashboard/updateRoom/${room?._id}`}>
+         <button className='relative '>
           <FaRegEdit className='text-2xl ' />
+          
           </button>
+         </Link>
         </span>
       </td>
     </tr>

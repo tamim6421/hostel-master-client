@@ -3,21 +3,26 @@ import { useState } from "react"
 import { getHostRoom } from "../../../api/utils"
 import useAuth from "../../../hooks/useAuth"
 import RoomDataRow from "./RoomDataRow/RoomDataRow"
-
+import { useQuery } from "@tanstack/react-query"
+import axiosSecure from "../../../api"
+import useAllRooms from "../../../hooks/useAllRooms"
 
 
 const MyRoom = () => {
-
+const [getRoom, refetch] = useAllRooms()
     const {user} = useAuth()
-    const [rooms, setRooms] = useState()
+    // const [rooms, setRooms] = useState()
 
-    useEffect( () =>{
-        getHostRoom( user?.email)
-        .then(data =>{
-            setRooms(data)
-        })
+    // const {data: getRoom = [], refetch} = useQuery({
+    //   queryKey: ['getRoom'],
+    //   queryFn: async() =>{
+    //     const res = await axiosSecure.get(`/myrooms/${user?.email}`)
+    //     return res.data
+    //   }
+    // })
+    // console.log(getRoom)
 
-    } ,[user])
+  
 
   return (
     <>
@@ -78,7 +83,7 @@ const MyRoom = () => {
                 <tbody>
                     {/* Room row data */}
                     {
-                        rooms?.map(room => <RoomDataRow key={room._id} room={room}></RoomDataRow>)
+                        getRoom?.map(room => <RoomDataRow key={room._id} room={room} refetch={refetch}></RoomDataRow>)
                     }
 
                 </tbody>

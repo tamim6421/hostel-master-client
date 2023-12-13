@@ -4,6 +4,7 @@ import { ImSpinner9 } from 'react-icons/im'
 import useAuth from '../../hooks/useAuth'
 import { getToken, saveUser } from '../../api/utils'
 import toast from 'react-hot-toast'
+import login from '../../assets/login_blue.svg'
 
 const Login = () => {
 
@@ -49,7 +50,7 @@ const from = location?.state?.from?.pathname || '/'
 
       // 1. for singUp user with google
       const user = await signInWithGoogle()
-      console.log(user)
+      // console.log(user)
      
 
       // 2. save user data to the database 
@@ -73,7 +74,13 @@ const from = location?.state?.from?.pathname || '/'
 
 
   return (
-    <div className='flex justify-center items-center min-h-screen'>
+
+    <div className="hero min-h-screen bg-blue-100">
+    <div className="hero-content flex-col lg:flex-row">
+      <img src={login} className="max-w-sm rounded-lg " />
+      <div>
+        
+      <div className='flex justify-center items-center min-h-screen'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
         <div className='mb-8 text-center'>
           <h1 className='my-3 text-4xl text-orange-400 drop-shadow-lg  font-bold'>Sign In</h1>
@@ -160,6 +167,13 @@ const from = location?.state?.from?.pathname || '/'
         </p>
       </div>
     </div>
+      </div>
+    </div>
+  </div>
+
+
+
+ 
   )
 }
 

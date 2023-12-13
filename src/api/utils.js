@@ -146,3 +146,8 @@ export const updateRole = async ({email, role}) =>{
 
 
 
+// admin states api 
+export const adminState = async () =>{
+    const {data} = await axiosSecure.get('/admin-stat')
+    return data
+}

@@ -15,7 +15,7 @@ const MenuDropdown = () => {
         <div className='hidden md:block'>
           <ul className='flex gap-5'>
             <li>
-              <Link>Contact Us</Link>
+              <Link to='contact'>Contact Us</Link>
             </li>
             <li>
               <Link>All Rooms</Link>
@@ -25,9 +25,11 @@ const MenuDropdown = () => {
 
 
         <div className='hidden md:block'>
-          <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 btn py-3 px-4 text-sm font-semibold rounded-full  transition'>
-            Host your home
+         <Link to='/'>
+         <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 btn py-3 px-4 text-sm font-semibold rounded-full  transition'>
+            Home
           </button>
+         </Link>
         </div>
 
 
