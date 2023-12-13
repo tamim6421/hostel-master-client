@@ -75,7 +75,7 @@ const Sidebar = () => {
             {/* <ToggleBtn toggleHandler={toggleHandler} /> */}
 
               {/* If a user is host */}
-              { role === 'host' && role === 'guest' ?  <ToggleBtn toggleHandler={toggleHandler} /> : ''}
+              { role === 'host' || role === 'guest' ?  <ToggleBtn toggleHandler={toggleHandler} /> : ''}
             <nav>
               <MenuItem
                 icon={BsGraphUp}

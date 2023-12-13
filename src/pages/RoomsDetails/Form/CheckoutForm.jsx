@@ -5,10 +5,11 @@ import './CheckoutForm.css'
 
 import { ImSpinner9 } from 'react-icons/im'
 
-import { createPaymentIntent, saveBookingInfo, updateStatus } from '../../utils/bookings'
+
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import useAuth from '../../../hooks/useAuth'
+import { createPaymentIntent, saveBookingInfo, updateStatus } from '../../../api/utils'
 
 const CheckoutForm = ({ bookingInfo, closeModal }) => {
   const stripe = useStripe()
