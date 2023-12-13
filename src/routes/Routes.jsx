@@ -14,6 +14,7 @@ import ManageUsers from '../pages/Dashboard/Admin/ManageUsers'
 import AdminRoute from './AdminRoutes/AdminRoute'
 import Profile from '../pages/Dashboard/Admin/Common/Profile'
 import MyBookings from '../pages/RoomsDetails/MyBooking/MyBookings'
+import ManageBookings from '../pages/RoomsDetails/ManageBookings/ManageBookings'
 
 export const router = createBrowserRouter([
   {
@@ -59,7 +60,8 @@ export const router = createBrowserRouter([
         element: <MyBookings></MyBookings>
       },
       {
-        
+        path: 'manageBookings',
+        element: <ManageBookings></ManageBookings>
       }
     ]
   }
