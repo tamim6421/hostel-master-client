@@ -69,7 +69,7 @@ const AppliedRooms = () => {
                 
             </td>
             <th>
-             <Link to = {`/details/${room?._id}`}>
+             <Link to = {`/dashboard/roomDetails/${room?._id}`}>
              <button className="btn btn-info bg-blue-600 text-white btn-sm">details</button>
              </Link>
             </th>

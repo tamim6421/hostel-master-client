@@ -20,6 +20,7 @@ import ContactUs from '../pages/ContactUs/ContactUs'
 import UpdateRoom from '../layouts/Dashboard/MyRoom/UpdateRoom'
 import AllRoom from '../pages/AllRoom/AllRoom'
 import AppliedRooms from '../pages/Dashboard/Admin/AppliedRooms/AppliedRooms'
+import AppliedRoomDetails from '../pages/Dashboard/Admin/AppliedRooms/AppliedRoomDetails'
 
 
 export const router = createBrowserRouter([
@@ -90,6 +91,11 @@ export const router = createBrowserRouter([
       {
         path: 'appliedRooms',
         element: <AppliedRooms></AppliedRooms>
+      },
+      {
+        path: 'roomDetails/:id',
+        element: <AppliedRoomDetails></AppliedRoomDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
       }
     ]
   }
