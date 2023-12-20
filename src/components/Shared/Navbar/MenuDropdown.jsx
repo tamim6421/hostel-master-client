@@ -18,7 +18,7 @@ const MenuDropdown = () => {
               <Link to='contact'>Contact Us</Link>
             </li>
             <li>
-              <Link>All Rooms</Link>
+              <Link to='allRoom'>All Rooms</Link>
             </li>
           </ul>
         </div>
@@ -62,13 +62,13 @@ const MenuDropdown = () => {
               Home
             </Link>
             <Link
-              to='/'
+              to='allRoom'
               className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
             >
               All Rooms
             </Link>
             <Link
-              to='/'
+              to='contact'
               className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
             >
               Contract Us

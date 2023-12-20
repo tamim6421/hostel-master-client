@@ -13,7 +13,7 @@ import BookingModal from "./Modal/BookingModal";
 
 const RoomRservations = ({room}) => {
 
-
+console.log(room)
     let [isOpen, setIsOpen] = useState(false)
     const {user} = useAuth()
   
@@ -33,7 +33,7 @@ const RoomRservations = ({room}) => {
     const totalMonths = differenceInMonths(toDate, fromDate);
     const totalPrice = totalMonths * parseInt(room?.price);
     
-    // console.log('Total Months:', totalMonths);
+    console.log('Total Months:', totalMonths);
     // console.log('Total Price:', totalPrice);
 
       const [bookingInfo, setBookingInfo] = useState({
@@ -48,10 +48,19 @@ const RoomRservations = ({room}) => {
         image: room?.image
       })
   
+      const handleDateChange = ranges => {
+        console.log(ranges)
+        setValue({
+          startDate: new Date(room?.from),
+          endDate: new Date(room?.to),
+          key: 'selection',
+        })
+      }
 
 
     return (
         <div>
+          
             <div className="rounded-xl border-2 border-orange-200 overflow-hidden bg-white shadow-lg">
       <div className="flex items-center gap-1 p-4">
         <p className="text-2xl font-bold">
@@ -62,16 +71,21 @@ const RoomRservations = ({room}) => {
       <hr />
       {/* calender component */}
       <div className="flex justify-center">
-        <Calender value={value}></Calender>
+        <Calender handleDateChange = {handleDateChange} value={value}></Calender>
       </div>
 
       <div>
         <div className="px-5 p-4">
           <div>
-            <Button 
-            disabled={room?.host?.email == user?.email || room.booked}
-            onClick={ () => setIsOpen(true)}
-            label={"Booking"}></Button>
+           {
+            room.booked === true ? <div>
+              <button className=" cursor-pointer rounded-lg py-3 w-full mb-1 bg-red-400 text-white btn-disabled">Room Already Booked</button>
+            </div> :
+             <Button 
+             disabled={room?.host?.email == user?.email || room.booked}
+             onClick={ () => setIsOpen(true)}
+             label={"Booking"}></Button>
+           }
           </div>
           <hr className="border-2 border-orange-200" />
           <div className="flex items-center justify-between mt-3">

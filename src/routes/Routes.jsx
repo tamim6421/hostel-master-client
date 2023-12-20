@@ -18,6 +18,7 @@ import ManageBookings from '../pages/RoomsDetails/ManageBookings/ManageBookings'
 import Statistics from '../pages/Dashboard/Admin/Common/Statistics'
 import ContactUs from '../pages/ContactUs/ContactUs'
 import UpdateRoom from '../layouts/Dashboard/MyRoom/UpdateRoom'
+import AllRoom from '../pages/AllRoom/AllRoom'
 
 
 export const router = createBrowserRouter([
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path:'contact',
         element: <ContactUs></ContactUs>
+      },
+      {
+        path:'allRoom',
+        element: <AllRoom></AllRoom>
       },
       {
         path: '/rooms/:id',
@@ -59,7 +64,7 @@ export const router = createBrowserRouter([
       {
         path: 'updateRoom/:id',
         element: <UpdateRoom></UpdateRoom>,
-        loader: ({params}) => fetch(`https://hostel-master-server.vercel.app/updateroom/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/updateroom/${params.id}`)
       },
       {
         path: 'manage-users',

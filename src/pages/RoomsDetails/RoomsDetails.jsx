@@ -3,6 +3,7 @@ import Container from "../../components/Shared/Container";
 import Header from "./Header/Header";
 import RoomInfo from "./RoomInfo";
 import RoomRservations from "./RoomRservations";
+import { Helmet } from "react-helmet-async";
 
 
 const RoomsDetails = () => {
@@ -12,6 +13,9 @@ const RoomsDetails = () => {
 
     return (
         <Container>
+            <Helmet>
+                <title>Hostel | RoomDetails</title>
+            </Helmet>
             <div className="pt-20 max-w-screen-lg mx-auto" >
           
 

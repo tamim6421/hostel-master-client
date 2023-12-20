@@ -1,12 +1,12 @@
 import { DateRange } from 'react-date-range'
 
 
-const Calender = ({ value,handleSelect }) => {
+const Calender = ({ value,handleDateChange }) => {
   return (
     <DateRange
       rangeColors={['#0384fc']}
       ranges={[value]}
-    //   onChange={handleSelect}
+      onChange={handleDateChange}
     //   date={value.startDate}
       direction='vertical'
     //   showDateDisplay={false}
