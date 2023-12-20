@@ -1,8 +1,21 @@
 import { useLoaderData } from "react-router-dom";
-
+import axiosSecure from "../../../../api";
+import toast from "react-hot-toast";
 const AppliedRoomDetails = () => {
   const room = useLoaderData();
-  console.log(room);
+  const {loacation,area, bathrooms, bedrooms, description, title,from,guest,host,image,price, to, _id: roomId } = room
+//   console.log(room);
+
+
+  const handelAccept = async (room) =>{
+    console.log("accept")
+
+    const res = await axiosSecure.post('/confirmroom', room)
+    console.log(res.data)
+        if(res.data.upsertedId){
+            toast.success('Request Accepted')
+        }
+  }
   return (
     <div>
         <h1 className="text-center my-10 text-3xl font-bold text-blue-400">  Room Details</h1>
@@ -52,7 +65,7 @@ const AppliedRoomDetails = () => {
          </div>
           <div className="card-actions mt-5">
           <button 
-          onClick={''}
+          onClick={() =>handelAccept (room)}
           className="btn btn-success bg-green-500  text-white">
             Accept
             </button>
