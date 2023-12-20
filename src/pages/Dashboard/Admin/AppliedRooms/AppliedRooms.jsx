@@ -1,6 +1,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import axiosSecure from "../../../../api";
+import { Link } from "react-router-dom";
 const AppliedRooms = () => {
     
     const {data: getRoom = [], refetch} = useQuery({
@@ -15,7 +16,7 @@ const AppliedRooms = () => {
     return (
         <div>
            <div>
-             <h1 className="text-center my-20 text-3xl text-orange-400 font-bold">Applied Rooms
+             <h1 className="text-center my-10 text-3xl text-orange-400 font-bold">Applied Rooms
              <hr className="w-36 text-center mx-auto mt-3 border-2 border-blue-600" />
              </h1>
             
@@ -64,11 +65,13 @@ const AppliedRooms = () => {
             <td>{room?.price}</td>
             <td>
                 <p> <span>From - </span> <span> {room?.from.slice(0,10)}</span> </p>
-                <p> <span>To - </span> <span> {room?.to.slice(0,10)}</span> </p>
+                <p> <span className="mr-5">To - </span> <span> {room?.to.slice(0,10)}</span> </p>
                 
             </td>
             <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+             <Link to = {`/details/${room?._id}`}>
+             <button className="btn btn-info bg-blue-600 text-white btn-sm">details</button>
+             </Link>
             </th>
           </tr>
             )
