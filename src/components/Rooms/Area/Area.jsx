@@ -11,7 +11,7 @@ const Area = () => {
     return (
            <Container>
             <div>
-                <h1 className="mt-20 mb-10 text-center  text-3xl font-bold">Most Demandable Area </h1>
+                <h1 className="mt-20 mb-10 text-center text-3xl md:text-5xl text-blue-400 font-bold">Most Demandable Area </h1>
             </div>
         <div className="pt-4 flex gap-3 overflow-hidden flex-wrap items-center content-center justify-center ">
            {AreaIcons?.map( item => <AreaBox

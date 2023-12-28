@@ -4,6 +4,7 @@ import Rooms from "../../components/Rooms/Rooms"
 import Container from "../../components/Shared/Container"
 import Banner from "./Banner/Banner"
 import './Home.css'
+import Features from "./Features/Features"
 
 const Home = () => {
   // const [params , setParams] = useSearchParams()
@@ -22,6 +23,7 @@ const Home = () => {
       {/* rooms sections  */}
     <Container>
     <Rooms></Rooms>
+    <Features></Features>
     </Container>
     </div>
   )

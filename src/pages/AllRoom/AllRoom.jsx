@@ -37,7 +37,9 @@ const AllRoom = () => {
                 <div>
                 <AllRoomBanner></AllRoomBanner>
                 </div>
-                <h1 className="text-center mt-10 text-3xl font-bold text-blue-500">All Rooms {rooms.length} </h1>
+                
+                {/* <h1 className="text-center mt-10 text-3xl font-bold text-blue-500">All Rooms {rooms.length} </h1> */}
+
                 <div className="mt-20">
                     <div>
                         <p className="text-center mb-3 text-3xl font-bold text-yellow-500 drop-shadow-lg">Search Room By Area</p>

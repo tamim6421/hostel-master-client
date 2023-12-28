@@ -7,7 +7,7 @@ const RoomCards = ({room}) => {
     return (
      <Link to={`/rooms/${room?._id}`}>
         <div className='col-span-1 cursor-pointer shadow-md  group'>
-      <div className='flex flex-col gap-2 w-full shadow-sm rounded-lg p-1'>
+      <div className='flex flex-col gap-2 w-full shadow-sm rounded-lg p-1 text-gray-500 '>
         <div
           className='
             aspect-square 
@@ -22,6 +22,7 @@ const RoomCards = ({room}) => {
               object-cover 
               h-full 
               w-full 
+              font-semibold
               group-hover:scale-110 
               transition
             '
@@ -38,9 +39,10 @@ const RoomCards = ({room}) => {
             {/* <HeartButton /> */}
           </div>
         </div>
-        <div className='font-semibold text-lg'>{room?.location}</div>
+        <div className='font-semibold text-lg'>{room?.area}</div>
         <div className='font-light text-neutral-500'>
-          5 nights . June 19 - 26
+         <p className="font-semibold">Available:</p>
+         <p>{room.from.slice(0,10)} to {room.to.slice(0,10)} </p>
         </div>
         <div className='flex flex-row items-center gap-1'>
           <div className='font-semibold'>$ {room?.price}</div>
