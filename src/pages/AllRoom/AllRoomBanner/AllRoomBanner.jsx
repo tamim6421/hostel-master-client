@@ -21,7 +21,7 @@ const AllRoomBanner = () => {
                 <span className='text-blue-500' data-aos="fade-down">Search your room </span> <span className='text-yellow-500'>by</span>
                 <br />
                 <span className='text-yellow-400' data-aos="fade-left">Area  </span></h1>
-                 <h3 className='text-xl px-5 text-gray-300 lg:mt-3 lg:text-4xl animate__animated animate__fadeInUp ' data-aos="fade-up">
+                 <h3 className='text-xl px-5 text-blue-500 font-semibold lg:mt-3 lg:text-4xl animate__animated animate__fadeInUp ' data-aos="fade-up">
                 LUXURY EXPERIENCE<br />
                 We have everything you need
                  </h3>
