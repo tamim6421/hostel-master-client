@@ -38,7 +38,7 @@ const AllRoomCard = ({room}) => {
             {/* <HeartButton /> */}
           </div>
         </div>
-        <div className='font-semibold text-lg'>{room?.location}</div>
+        <div className='font-semibold text-lg'>{room?.area}</div>
         <div className='font-light text-neutral-500'>
           5 nights . June 19 - 26
         </div>

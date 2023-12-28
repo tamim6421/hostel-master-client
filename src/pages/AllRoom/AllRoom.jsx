@@ -6,24 +6,31 @@ import { FaSearch } from "react-icons/fa";
 import Rooms from "../../components/Rooms/Rooms";
 import AllRoomCard from "./AllRoomBanner/AllRoomCard";
 import Heading from "../../components/Shared/Heading";
+import axios from "axios";
 
 
 const AllRoom = () => {
     const [rooms, setRooms] = useState([])
     const [loading, setLoading] = useState(false)
+    const [searchText, setSearchText] = useState('')
 
     useEffect( () =>{
-        getAllRooms()
+        axios.get(`http://localhost:5000/allrooms?search=${searchText}`)
         .then(data =>{
-            setRooms(data)
+            setRooms(data.data)
         })
        
-    } ,[])
+    } ,[searchText])
 
         // if(loading) return <Loader></Loader>
 
-        console.log(rooms)
-
+        // console.log(rooms) 
+        const handelSearch = e =>{
+            e.preventDefault()
+            const text = e.target.search.value 
+            
+            setSearchText(text)
+        }
     return (
         <div className="pt-20">
             <Container>
@@ -33,12 +40,12 @@ const AllRoom = () => {
                 <h1 className="text-center mt-10 text-3xl font-bold text-blue-500">All Rooms {rooms.length} </h1>
                 <div className="mt-20">
                     <div>
-                        <p className="text-center mb-2 text-2xl font-bold text-yellow-500 drop-shadow-lg">Search Room By Area</p>
+                        <p className="text-center mb-3 text-3xl font-bold text-yellow-500 drop-shadow-lg">Search Room By Area</p>
                     </div>
 
                 <div className='relative text-center '>
-               <form >
-               <input type="text" placeholder="Type here" className="input input-bordered input-lg w-full max-w-xs rounded-full " />
+               <form onSubmit={handelSearch}>
+               <input type="text" placeholder="Search Area" name="search" className="input input-bordered input-lg w-full max-w-xs rounded-full " />
                 <button className="btn btn-circle  bg-blue-500 hover:bg-blue-600  text-white absolute">
                 <FaSearch className="text-2xl" />
                 </button>

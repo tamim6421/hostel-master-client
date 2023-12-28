@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AllRoomBanner = () => {
     return (
-      <div className="container h-[80vh]">
+      <div className="container h-[70vh]">
       <div className="overly">
         <div className="text-white">
         </div>
@@ -13,10 +13,10 @@ const AllRoomBanner = () => {
         
         <div>
           <div className="hero  ">
-            <div className="flex h-[100vh] items-center justify-center">
+            <div className="flex h-[70vh] items-center justify-center">
            
             
-              <div className="  px-5">
+              <div className="  md:px-5">
                 <h1 className="text-3xl lg:text-6xl w-full font-bold font-rope pl-5 " data-aos="fade-down" >
                 <span className='text-blue-500' data-aos="fade-down">Search your room </span> <span className='text-yellow-500'>by</span>
                 <br />
