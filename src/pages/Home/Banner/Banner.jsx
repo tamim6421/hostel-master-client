@@ -26,7 +26,7 @@ const Banner = () => {
                 We have everything you need
                  </h3>
               <div className='ml-5'>
-              <Link to='/classes'>
+              <Link to='/allRoom'>
               <button className='bg-stone-900 btn btn-outline text-white  px-8 mx-w-max text-center mt-10 rounded-lg py-2 text-lg font-semibold' data-aos="fade-down ">BOOKED NOW</button>  
               </Link>
 
