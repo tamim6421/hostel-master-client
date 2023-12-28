@@ -3,13 +3,14 @@ import Area from "../../components/Rooms/Area/Area"
 import Rooms from "../../components/Rooms/Rooms"
 import Container from "../../components/Shared/Container"
 import Banner from "./Banner/Banner"
+import './Home.css'
 
 const Home = () => {
   // const [params , setParams] = useSearchParams()
   // const area = params.get("area")
   // console.log(area)
   return (
-    <div>
+    <div className="home">
 
    
       {/* banner sections */}

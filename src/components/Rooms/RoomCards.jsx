@@ -6,7 +6,7 @@ const RoomCards = ({room}) => {
     // console.log(room)
     return (
      <Link to={`/rooms/${room?._id}`}>
-        <div className='col-span-1 cursor-pointer group'>
+        <div className='col-span-1 cursor-pointer shadow-md  group'>
       <div className='flex flex-col gap-2 w-full shadow-sm rounded-lg p-1'>
         <div
           className='

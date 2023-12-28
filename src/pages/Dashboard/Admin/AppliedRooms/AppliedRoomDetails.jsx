@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useLoaderData } from "react-router-dom";
 import axiosSecure from "../../../../api";
 import toast from "react-hot-toast";
