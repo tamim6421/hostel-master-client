@@ -7,6 +7,7 @@ import './Home.css'
 import Features from "./Features/Features"
 import BestRoom from "./BestRoom/BestRoom"
 import GetInTouch from "./GeInTouch/GetInTouch"
+import Review from "./Review/Review"
 
 const Home = () => {
   // const [params , setParams] = useSearchParams()
@@ -28,6 +29,7 @@ const Home = () => {
     <Features></Features>
     <BestRoom></BestRoom>
     <GetInTouch></GetInTouch>
+    <Review></Review>
     </Container>
     </div>
   )

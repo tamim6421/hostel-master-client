@@ -57,13 +57,13 @@ const GetInTouch = () => {
     </label>
   </div>
 
-            <input className="btn  border-2 border-orange-300 bg-blue-500 text-white cursor-pointer mt-5 " type="submit" value="Send Message" />
+            <input className="btn rounded-full px-5  border-2 hover:bg-blue-600 border-orange-300 bg-blue-500 text-white cursor-pointer mt-5 " type="submit" value="Get In touch" />
                </form>
             </div>
 
 
 
-            <div className="w-3/4  mx-auto mt-20">
+            {/* <div className="w-3/4  mx-auto mt-20">
                 <p className="text-xl font-bold drop-shadow-lg">Don't be shy! Hit me up! </p>
 
              <div className="flex flex-col  md:flex-row gap-10 mt-10">
@@ -110,7 +110,7 @@ const GetInTouch = () => {
                 </div>
 
              </div>
-            </div>
+            </div> */}
     </div>
   );
 };
