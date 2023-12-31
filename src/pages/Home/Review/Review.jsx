@@ -47,9 +47,9 @@ const Review = () => {
           }}
           navigation={true}
           modules={[Pagination, Navigation]}
-          className="mySwiper w-3/4 px-20  text-center"
+          className="mySwiper w-3/4 text-gray-400  text-center"
         >
-          <SwiperSlide>
+          <SwiperSlide className="px-16">
           <p className="text-gray-500 font-bold text-xl">Abul Khan</p>
             <p>Student </p>
             An unforgettable stay at aquarelle! The beachfront location provided
@@ -57,7 +57,7 @@ const Review = () => {
             atmosphere was perfect. The attentive staff including a refreshing
             pool and superb dining options.
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="px-16">
           <p className="text-gray-500 font-bold text-xl">Fahim </p>
             <p>Student  </p>
             Emma Trueman ENVATO MARKET An unforgettable stay at aquarelle! The
@@ -65,7 +65,7 @@ const Review = () => {
             blend of luxury and a relaxed atmosphere was perfect. The attentive
             staff and excellent amenities,{" "}
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="px-16">
           <p className="text-gray-500 font-bold text-xl">Dela </p>
             <p>Developer </p>
             Emma Trueman ENVATO MARKET An unforgettable stay at aquarelle! The
@@ -73,7 +73,7 @@ const Review = () => {
             blend of luxury and a relaxed atmosphere was perfect. The attentive
             staff and excellent amenities,{" "}
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="px-16">
           <p className="text-gray-500 font-bold text-xl">Jhon Don </p>
             <p>Developer </p>
             Emma Trueman ENVATO MARKET An unforgettable stay at aquarelle! The
@@ -81,7 +81,7 @@ const Review = () => {
             blend of luxury and a relaxed atmosphere was perfect. The attentive
             staff and excellent amenities,{" "}
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="px-16">
             <p className="text-gray-500 font-bold text-xl">Tamim Hossan </p>
             <p>Developer </p>
             Emma Trueman ENVATO MARKET An unforgettable stay at aquarelle! The
