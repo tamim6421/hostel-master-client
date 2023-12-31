@@ -6,6 +6,7 @@ import Banner from "./Banner/Banner"
 import './Home.css'
 import Features from "./Features/Features"
 import BestRoom from "./BestRoom/BestRoom"
+import GetInTouch from "./GeInTouch/GetInTouch"
 
 const Home = () => {
   // const [params , setParams] = useSearchParams()
@@ -26,6 +27,7 @@ const Home = () => {
     <Rooms></Rooms>
     <Features></Features>
     <BestRoom></BestRoom>
+    <GetInTouch></GetInTouch>
     </Container>
     </div>
   )
