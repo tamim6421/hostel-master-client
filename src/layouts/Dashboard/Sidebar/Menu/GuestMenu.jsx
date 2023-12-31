@@ -12,6 +12,7 @@ import useAuth from "../../../../hooks/useAuth";
 import HostModal from "./HostModal";
 import useRole from "../../../../hooks/useRole";
 import { MdAddHomeWork } from "react-icons/md";
+import { HiMiniHomeModern } from "react-icons/hi2";
 
 const GuestMenu = () => {
   const [role] = useRole()
@@ -47,6 +48,7 @@ const GuestMenu = () => {
     return  <>
    
     <MenuItem icon={FaFingerprint } label="My Bookings" address="myBookings" />
+    <MenuItem icon={HiMiniHomeModern} label="My Rooms" address="myRoom" />
     <MenuItem icon={MdAddHomeWork} label="Add Room" address="addRoom" />
 
     {/* button  */}
