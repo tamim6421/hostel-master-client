@@ -21,6 +21,7 @@ import UpdateRoom from '../layouts/Dashboard/MyRoom/UpdateRoom'
 import AllRoom from '../pages/AllRoom/AllRoom'
 import AppliedRooms from '../pages/Dashboard/Admin/AppliedRooms/AppliedRooms'
 import AppliedRoomDetails from '../pages/Dashboard/Admin/AppliedRooms/AppliedRoomDetails'
+import GuestStatistics from '../pages/Dashboard/GuestStatistics/GuestStatistics'
 
 
 export const router = createBrowserRouter([
@@ -87,6 +88,10 @@ export const router = createBrowserRouter([
       {
         path: 'adminState',
         element: <Statistics></Statistics>
+      },
+      {
+        path: 'guestStatistics',
+        element: <GuestStatistics></GuestStatistics>
       },
       {
         path: 'appliedRooms',

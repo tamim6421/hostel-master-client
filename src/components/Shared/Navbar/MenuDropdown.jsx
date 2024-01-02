@@ -9,7 +9,7 @@ const MenuDropdown = () => {
   const { user, logOut } = useAuth()
 
   return (
-    <div className='relative'>
+    <div className='relative bg-blue-50'>
       <div className='flex flex-row items-center gap-3'>
         {/* Become A Host btn */}
         <div className='hidden md:block'>
@@ -36,7 +36,7 @@ const MenuDropdown = () => {
         {/* Dropdown btn */}
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className='p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition'
+          className='p-4 md:py-1 md:px-2 border-[1px] bg-blue-50 border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition'
         >
           <AiOutlineMenu />
           <div className='hidden md:block'>

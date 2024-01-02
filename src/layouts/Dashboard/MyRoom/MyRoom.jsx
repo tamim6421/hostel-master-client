@@ -1,16 +1,11 @@
-import { useEffect } from "react"
-import { useState } from "react"
-import { getHostRoom } from "../../../api/utils"
-import useAuth from "../../../hooks/useAuth"
+
 import RoomDataRow from "./RoomDataRow/RoomDataRow"
-import { useQuery } from "@tanstack/react-query"
-import axiosSecure from "../../../api"
 import useAllRooms from "../../../hooks/useAllRooms"
 
 
 const MyRoom = () => {
 const [getRoom, refetch] = useAllRooms()
-    const {user} = useAuth()
+   
     // const [rooms, setRooms] = useState()
 
     // const {data: getRoom = [], refetch} = useQuery({

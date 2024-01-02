@@ -49,6 +49,7 @@ const GuestMenu = () => {
    
     <MenuItem icon={FaFingerprint } label="My Bookings" address="myBookings" />
     <MenuItem icon={HiMiniHomeModern} label="My Rooms" address="myRoom" />
+    <MenuItem icon={HiMiniHomeModern} label="My Statistics" address="guestStatistics" />
     <MenuItem icon={MdAddHomeWork} label="Add Room" address="addRoom" />
 
     {/* button  */}
