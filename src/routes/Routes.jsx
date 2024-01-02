@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
       {
         path: 'updateRoom/:id',
         element: <UpdateRoom></UpdateRoom>,
-        loader: ({params}) => fetch(`http://localhost:5000/updateroom/${params.id}`)
+        loader: ({params}) => fetch(`https://hostel-master-server.vercel.app/updateroom/${params.id}`)
       },
       {
         path: 'manage-users',
@@ -100,7 +100,7 @@ export const router = createBrowserRouter([
       {
         path: 'roomDetails/:id',
         element: <AppliedRoomDetails></AppliedRoomDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
+        loader: ({params}) => fetch(`https://hostel-master-server.vercel.app/rooms/${params.id}`)
       }
     ]
   }

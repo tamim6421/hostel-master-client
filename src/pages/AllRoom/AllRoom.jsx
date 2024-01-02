@@ -15,7 +15,7 @@ const AllRoom = () => {
     const [searchText, setSearchText] = useState('')
 
     useEffect( () =>{
-        axios.get(`http://localhost:5000/allrooms?search=${searchText}`)
+        axios.get(`https://hostel-master-server.vercel.app/allrooms?search=${searchText}`)
         .then(data =>{
             setRooms(data.data)
         })

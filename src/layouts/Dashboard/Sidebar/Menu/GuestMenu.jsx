@@ -2,6 +2,7 @@
 import { FaFingerprint } from "react-icons/fa";
 
 import { GrUserAdmin } from 'react-icons/gr'
+import { FaChartSimple } from "react-icons/fa6";
 
 
 import MenuItem from "../MenuItem";
@@ -49,7 +50,7 @@ const GuestMenu = () => {
    
     <MenuItem icon={FaFingerprint } label="My Bookings" address="myBookings" />
     <MenuItem icon={HiMiniHomeModern} label="My Rooms" address="myRoom" />
-    <MenuItem icon={HiMiniHomeModern} label="My Statistics" address="guestStatistics" />
+    <MenuItem icon={FaChartSimple} label="My Statistics" address="guestStatistics" />
     <MenuItem icon={MdAddHomeWork} label="Add Room" address="addRoom" />
 
     {/* button  */}

@@ -11,6 +11,7 @@ import CheckoutForm from '../Form/CheckoutForm'
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);
 
 const BookingModal = ({ closeModal, isOpen, bookingInfo }) => {
+  console.log(bookingInfo)
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={closeModal}>
@@ -68,7 +69,7 @@ const BookingModal = ({ closeModal, isOpen, bookingInfo }) => {
 
                 <div className='mt-2'>
                   <p className='text-sm text-gray-500'>
-                    Price: $ {bookingInfo.price}
+                    Price: $ {bookingInfo?.price}
                   </p>
                 </div>
                 <hr className='mt-8 ' />

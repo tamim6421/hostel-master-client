@@ -40,7 +40,7 @@ console.log(room)
         guest: {name: user?.displayName, email: user?.email, image: user?.photoURL},
         host: room?.host?.email,
         location: room?.location,
-        price: totalPrice,
+        price: room?.price,
         to: value.endDate,
         from: value.startDate,
         title: room?.title,
@@ -90,7 +90,7 @@ console.log(room)
           <hr className="border-2 border-orange-200" />
           <div className="flex items-center justify-between mt-3">
             <p className="text-xl font-bold">Total :  </p>
-            <p> ${totalPrice} </p>
+            <p> ${room?.price} </p>
           </div>
         </div>
       </div>
